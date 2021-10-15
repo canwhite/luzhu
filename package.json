@@ -1,0 +1,16 @@
+{
+  "name": "luzhu",
+  "version": "1.0.0",
+  "description": "front-micro",
+  "main": "index.js",
+  "author": "qc",
+  "license": "MIT",
+  "dependencies": {
+    "@types/requestidlecallback": "^0.3.4",
+    "import-html-entry": "^1.11.1",
+    "path-to-regexp": "^6.2.0"
+  },
+  "scripts": {
+    "build": "rm -rf ./dist && tsc -w"
+  }
+}
