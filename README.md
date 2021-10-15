@@ -16,6 +16,7 @@ todos
 
 ```
 1.首先在项目最外层给luzhu打包
+yarn install
 yarn build
 
 2.启动子应用和主应用
