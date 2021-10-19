@@ -1,8 +1,12 @@
+//在沙箱里放了很多的工具
+/* import {EventCenterForMicroApp} from "../data" */
 export class ProxySandbox {
     proxy: any
     running = false
-    constructor() {
+    appName:string
+    constructor(appName:string) {
       const fakeWindow = Object.create(null)
+      this.appName = appName;
       const proxy = new Proxy(fakeWindow, {
         set: (target: any, p: string, value: any) => {
           if (this.running) {
@@ -34,11 +38,17 @@ export class ProxySandbox {
         },
       })
       this.proxy = proxy
+      
     }
     active() {
+      //创建数据通信对象
+      /* this.proxy.microApp = new EventCenterForMicroApp(this.appName) */
       this.running = true
     }
     inactive() {
+      /* this.proxy.microApp.removeDataListener(()=>{
+        console.log("remove sub listener")
+      }); */
       this.running = false
     }
   }

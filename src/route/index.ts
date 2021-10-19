@@ -132,6 +132,17 @@ export const reroute = (url:string) =>{
                 await runUnmounted(app);
             })
             .concat(
+                /*
+                重要：这是一切的入口
+
+
+                //路由是一切部分的入口，
+                //从route走生命钩子，钩子又runBeforeLoad,BeforeLoad里边又loadHtml
+                //loadHtml中挂载方法和应用内方法挂钩，调用子类钩子，并且在loadHTMl里边我们还挂载了沙箱
+                //这个方法中只是用runBoostrap初始化了子类状态
+                //其它的都是主应用初始化方法
+
+                */
                 actives.map(async (app)=>{
                     await runBeforeLoad(app);
                     await runBoostrap(app);

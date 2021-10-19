@@ -19,7 +19,9 @@ export const start = () => {
     throw new Error('请先注册应用')
   }
 
+  //先写好监听
   hijackRoute()
+  //首次触发
   reroute(window.location.href)
 
   list.forEach((app) => {
@@ -27,4 +29,6 @@ export const start = () => {
       prefetch(app as IInternalAppInfo)
     }
   })
+
+  
 }

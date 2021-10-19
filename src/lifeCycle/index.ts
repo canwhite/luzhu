@@ -10,13 +10,13 @@ import { loadHTML } from "../loader/index";
 刚开始是主应用先跑起来，再加载主应用资源，后来是子应用mounted之后，主应用才mounted
 */
 let lifeCycle:ILifeCycle = {};
+
 export const setLifeCycle = (list:ILifeCycle)=>{
     lifeCycle = list;
 }
 export const getLifeCycle = ()=>{
     return lifeCycle
 }
-
 
 
 export const runBeforeLoad = async (app:IInternalAppInfo)=>{
@@ -42,11 +42,13 @@ export const runBoostrap = async (app:IInternalAppInfo)=>{
     app.status = AppStatus.NOT_MOUNTED;
 }
 
+
+
 export const runMounted = async (app:IInternalAppInfo) => {
     app.status = AppStatus.MOUNTING;
     await app.mount?.(app)
     app.status = AppStatus.MOUNTED;
-    //等子应用都mounted完了，主应用就可以走主应用钩子了
+
     await runLifeCycle("mounted",app);
 }
 
@@ -56,6 +58,7 @@ export const runUnmounted = async (app:IInternalAppInfo)=>{
     await app.unmount?.(app);
     app.status = AppStatus.NOT_MOUNTED;
     await runLifeCycle("unmounted",app);
+    
 }
 
 
@@ -63,8 +66,12 @@ export const runUnmounted = async (app:IInternalAppInfo)=>{
 const runLifeCycle = async ( name:keyof ILifeCycle,app:IAppInfo) =>{
     
     const fn = lifeCycle[name]
+    //fn为什么会是array？
     if(fn instanceof Array){
-        await Promise.all(fn.map((item)=>item(app)))
+        await Promise.all(
+            fn.map(
+                (item)=>item(app)
+            ))
     }else{
         await fn?.(app)
     }

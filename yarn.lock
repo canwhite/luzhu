@@ -9,6 +9,11 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@types/lodash@^4.14.175":
+  version "4.14.175"
+  resolved "https://registry.npmmirror.com/@types/lodash/download/@types/lodash-4.14.175.tgz#b78dfa959192b01fae0ad90e166478769b215f45"
+  integrity sha1-t436lZGSsB+uCtkOFmR4dpshX0U=
+
 "@types/requestidlecallback@^0.3.4":
   version "0.3.4"
   resolved "https://registry.nlark.com/@types/requestidlecallback/download/@types/requestidlecallback-0.3.4.tgz#819e22b8994cf547e1f17f9cb79805a5a3bb1db5"
@@ -20,6 +25,11 @@ import-html-entry@^1.11.1:
   integrity sha1-PYxZd5Jr3RIquOZYllwQIGi0r40=
   dependencies:
     "@babel/runtime" "^7.7.2"
+
+lodash@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=
 
 path-to-regexp@^6.2.0:
   version "6.2.0"

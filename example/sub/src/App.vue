@@ -11,7 +11,10 @@ export default {
   name: 'App',
   components: {
     HelloWorld
-  }
+  },
+  mounted(props) {
+    console.log("my-props",props);
+  },
 }
 
 </script>
