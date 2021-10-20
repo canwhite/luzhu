@@ -1,7 +1,7 @@
 import { IInternalAppInfo } from '../types'
 import { importEntry } from 'import-html-entry'
 import { ProxySandbox } from './sandbox'
-/* import { getMicroAppStateActions } from '../globalState' */
+import { getMicroAppStateActions } from '../globalState'
 
 export const loadHTML = async (app: IInternalAppInfo) => {
   const { container, entry} = app;
@@ -37,7 +37,7 @@ const runJS = (value: string, app: IInternalAppInfo) => {
 
 
   const {name} = app;
-  /* const appInstanceId = `${name}_${+new Date()}_${Math.floor(Math.random() * 1000)}`;
+  const appInstanceId = `${name}_${+new Date()}_${Math.floor(Math.random() * 1000)}`;
   //如果需要的话，再给unmounted传一个值
   console.log(appInstanceId);
   const actions: Record<string, CallableFunction> =
@@ -45,7 +45,7 @@ const runJS = (value: string, app: IInternalAppInfo) => {
   //在挂载沙箱的时候同步挂载actions
   if(!app.actions){
     app.actions = actions;
-  } */
+  } 
 
   //将名字挂载在沙盒上
   if (!app.proxy) {

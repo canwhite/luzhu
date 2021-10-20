@@ -11,15 +11,9 @@ export const bootstrap = () => {
   })
 }
 
-export const mount = (data) => {
+export const mount = (data ) => {
   app.$mount('#app')
-  /* console.log();
-  data.actions.setGlobalState("user",{name:"123"})
-  data.actions.onGlobalStateChange=((state,prev)=>{
-    console.log("sub on",state,prev);
-  }) */
-  data.actions.dispatch("test",{a:"123"})
-  
+  data.actions.setGlobalState({a:"1789"})
 }
 
 export const unmount = () => {
