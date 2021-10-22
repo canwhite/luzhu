@@ -37,7 +37,7 @@ actions.onGlobalStateChange((state, prev) => {
 actions.setGlobalState({a:"467"});
 
 
-//注册
+//注册子应用
 const appList = [
   {
     name: 'vue',
