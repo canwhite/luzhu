@@ -1,5 +1,5 @@
 # luzhu（卤煮）
-front-micro，前端微服务框架
+front-micro，微前端框架，"一碗卤煮"
 
 ## des
 
@@ -74,11 +74,10 @@ export const unmount = () => {
   app.$destroy()
 }
 
-
-
-
-
 ```
 
+## todos
+
+其它细节填充
 
 
